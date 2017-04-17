@@ -6,7 +6,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.me.name}</h1>
+        <h1>{this.props.account.name}</h1>
+        {this.props.account.followingShows}
       </div>
     );
   }
@@ -14,10 +15,10 @@ class App extends React.Component {
 
 export default Relay.createContainer(App, {
   fragments: {
-    me: () => Relay.QL`
-      fragment on Account {
-        name
-      }
-    `,
-  },
+    account: () => Relay.QL`
+        fragment on Account {
+            name
+        }
+    `
+  }
 });

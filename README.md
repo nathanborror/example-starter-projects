@@ -1,8 +1,16 @@
-# Starter Project: Relay
+# Starter Projects
 
-A starter project for a [React][1]-[Relay][2] client. Add a **schema.json** to the
-project's root directory and run `yarn install && yarn start`. This assumes your 
-GraphQL server is running at `http://localhost:8080/graphql`.
+These are meant to be very simple setups to act as starting off points for
+prototyping new ideas.
 
-[1]:https://facebook.github.io/react
-[2]:https://facebook.github.io/relay
+All GraphQL examples are assuming the following schema:
+
+    type Account {
+        name: String!
+    }
+    type Query {
+        me(): Account!
+    }
+    schema {
+        query: Query
+    }

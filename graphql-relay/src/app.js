@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Relay from 'react-relay/classic';
 import App from './components/App';
-import Queries from './queries/Queries';
 
 const config = {
   host: 'http://localhost:8080/graphql',
@@ -18,8 +17,10 @@ Relay.injectNetworkLayer(
 )
 
 class HomeRoute extends Relay.Route {
-  static routeName = 'Home';
-  static queries = Queries;
+  static routeName = 'Home'
+  static queries = {
+    account: () => Relay.QL`query { me }`
+  }
 }
 
 ReactDOM.render(
